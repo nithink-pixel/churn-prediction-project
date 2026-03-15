@@ -1,0 +1,58 @@
+============================================================
+TELECOM CUSTOMER CHURN PREDICTION — PROJECT STRUCTURE
+============================================================
+
+Project Root: /Users/nithinkrishna145/Desktop/churn-prediction-project/
+
+DIRECTORIES:
+├── data/
+│   ├── raw/                  — Original dataset (Telco-Customer-Churn.csv)
+│   └── processed/            — Cleaned & feature-engineered data
+├── models/                   — Saved ML model files (.pkl, .json)
+├── analysis/                 — EDA findings, reports, metrics
+├── visualizations/           — All PNG charts and plots
+├── notebooks/                — Jupyter notebooks for exploration
+└── src/                      — Python source scripts
+    └── eda.py                — Exploratory Data Analysis script
+
+KEY FILES:
+├── requirements.txt          — Python package dependencies
+├── src/eda.py                — Comprehensive EDA script
+├── analysis/eda_findings.txt — EDA output findings
+└── analysis/project_structure.txt — This file
+
+DATASET:
+  Source: IBM Telco Customer Churn
+  URL: https://raw.githubusercontent.com/IBM/telco-customer-churn-on-icp4d/master/data/Telco-Customer-Churn.csv
+  Rows: ~7,043 customers
+  Columns: 21 features + 1 target (Churn)
+  Target: Churn (Yes/No) — ~26.5% positive class
+
+FEATURES:
+  Numerical:    tenure, MonthlyCharges, TotalCharges
+  Categorical:  gender, SeniorCitizen, Partner, Dependents,
+                PhoneService, MultipleLines, InternetService,
+                OnlineSecurity, OnlineBackup, DeviceProtection,
+                TechSupport, StreamingTV, StreamingMovies,
+                Contract, PaperlessBilling, PaymentMethod
+
+VISUALIZATIONS GENERATED:
+  1. churn_distribution.png         — Pie + bar chart of target variable
+  2. numerical_distributions.png    — Histograms + boxplots for numeric features
+  3. correlation_heatmap.png        — Pairwise correlation matrix
+  4. categorical_churn_rates.png    — Churn rate per categorical feature
+  5. tenure_by_churn.png            — KDE + binned churn rate by tenure
+  6. monthly_charges_by_churn.png   — Monthly charges distribution + scatter
+  7. contract_type_churn.png        — Churn by contract type
+  8. payment_method_churn.png       — Churn by payment method
+  9. internet_service_churn.png     — Churn by internet service type
+  10. feature_importance_placeholder.png — EDA-based feature impact ranking
+
+ML PIPELINE (planned):
+  1. Data Preprocessing  — Label encode, scale, handle missing values
+  2. Class Balancing     — SMOTE oversampling for imbalanced classes
+  3. Models              — Logistic Regression, Random Forest, XGBoost, LightGBM
+  4. Evaluation          — Accuracy, ROC-AUC, Precision, Recall, F1
+  5. Explainability      — SHAP feature importance
+
+============================================================

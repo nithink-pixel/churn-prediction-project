@@ -1,0 +1,108 @@
+======================================================================
+TELCO CUSTOMER CHURN - EXPLORATORY DATA ANALYSIS
+======================================================================
+
+[1] DATASET OVERVIEW
+  Shape: 7043 rows × 21 columns
+  Memory usage: 6662.2 KB
+  Duplicate rows: 0
+
+  Missing values:
+TotalCharges    11
+
+  Column dtypes:
+customerID           object
+gender               object
+SeniorCitizen         int64
+Partner              object
+Dependents           object
+tenure                int64
+PhoneService         object
+MultipleLines        object
+InternetService      object
+OnlineSecurity       object
+OnlineBackup         object
+DeviceProtection     object
+TechSupport          object
+StreamingTV          object
+StreamingMovies      object
+Contract             object
+PaperlessBilling     object
+PaymentMethod        object
+MonthlyCharges      float64
+TotalCharges        float64
+Churn                object
+
+[2] TARGET VARIABLE: Churn
+  No  (0): 5,174  (73.5%)
+  Yes (1): 1,869  (26.5%)
+  Class imbalance ratio: 2.77:1
+  Saved: churn_distribution.png
+
+[3] NUMERICAL FEATURES
+
+        tenure  MonthlyCharges  TotalCharges
+count  7043.00         7043.00       7032.00
+mean     32.37           64.76       2283.30
+std      24.56           30.09       2266.77
+min       0.00           18.25         18.80
+25%       9.00           35.50        401.45
+50%      29.00           70.35       1397.48
+75%      55.00           89.85       3794.74
+max      72.00          118.75       8684.80
+  tenure mean — No Churn: 37.57, Churn: 17.98
+  MonthlyCharges mean — No Churn: 61.27, Churn: 74.44
+  TotalCharges mean — No Churn: 2555.34, Churn: 1531.80
+  Saved: numerical_distributions.png
+
+[4] CATEGORICAL FEATURES - Churn Rates
+  gender: {'Female': 26.9, 'Male': 26.2}
+  SeniorCitizen: {0: 23.6, 1: 41.7}
+  Partner: {'No': 33.0, 'Yes': 19.7}
+  Dependents: {'No': 31.3, 'Yes': 15.5}
+  PhoneService: {'No': 24.9, 'Yes': 26.7}
+  MultipleLines: {'No': 25.0, 'No phone service': 24.9, 'Yes': 28.6}
+  InternetService: {'DSL': 19.0, 'Fiber optic': 41.9, 'No': 7.4}
+  OnlineSecurity: {'No': 41.8, 'No internet service': 7.4, 'Yes': 14.6}
+  OnlineBackup: {'No': 39.9, 'No internet service': 7.4, 'Yes': 21.5}
+  DeviceProtection: {'No': 39.1, 'No internet service': 7.4, 'Yes': 22.5}
+  TechSupport: {'No': 41.6, 'No internet service': 7.4, 'Yes': 15.2}
+  StreamingTV: {'No': 33.5, 'No internet service': 7.4, 'Yes': 30.1}
+  StreamingMovies: {'No': 33.7, 'No internet service': 7.4, 'Yes': 29.9}
+  Contract: {'Month-to-month': 42.7, 'One year': 11.3, 'Two year': 2.8}
+  PaperlessBilling: {'No': 16.3, 'Yes': 33.6}
+  PaymentMethod: {'Bank transfer (automatic)': 16.7, 'Credit card (automatic)': 15.2, 'Electronic check': 45.3, 'Mailed check': 19.1}
+  Saved: categorical_churn_rates.png
+
+[5] CORRELATION ANALYSIS
+
+  Correlations with Churn:
+Churn_bin           1.00
+MonthlyCharges      0.19
+PaperlessBilling    0.19
+SeniorCitizen       0.15
+PhoneService        0.01
+gender             -0.01
+Partner            -0.15
+Dependents         -0.16
+TotalCharges       -0.20
+tenure             -0.35
+  Saved: correlation_heatmap.png
+  Saved: tenure_by_churn.png
+  Saved: monthly_charges_by_churn.png
+  Saved: contract_type_churn.png
+  Saved: payment_method_churn.png
+  Saved: internet_service_churn.png
+
+[6] KEY INSIGHTS SUMMARY
+• Overall churn rate: 26.5% (1,869 customers)
+• Month-to-month contracts have highest churn (~42%), two-year lowest (~3%)
+• Electronic check payment method has highest churn rate
+• Fiber optic internet service customers churn significantly more than DSL
+• Customers without online security/tech support churn more
+• Senior citizens churn at a higher rate than non-senior customers
+• Average tenure for churned customers is much lower than retained customers
+• Higher monthly charges correlate with higher churn likelihood
+• Customers with dependents/partners churn less (family commitment effect)
+• Dataset has class imbalance requiring SMOTE/oversampling techniques
+  Saved: feature_importance_placeholder.png
